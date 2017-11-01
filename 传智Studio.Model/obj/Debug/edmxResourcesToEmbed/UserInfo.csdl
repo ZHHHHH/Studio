@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="传智StudioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserAccount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="UserPwd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+    <Property Name="Professional" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+    <Property Name="Grade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Campus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="ActiCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RegTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="传智StudioEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+  </EntityContainer>
+</Schema>

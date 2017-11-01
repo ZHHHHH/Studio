@@ -1,0 +1,11 @@
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\传智Studio.Model.dll.config
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\传智Studio.Model.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\传智Studio.Model.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\EntityFramework.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\EntityFramework.SqlServer.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\EntityFramework.xml
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\EntityFramework.SqlServer.xml
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\bin\Release\zh-Hans\EntityFramework.resources.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\obj\Release\传智Studio.Model.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\obj\Release\传智Studio.Model.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Model\obj\Release\传智Studio.Model.csprojResolveAssemblyReference.cache

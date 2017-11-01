@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="传智StudioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserAccount" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserPwd" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
+    <Property Name="UserName" Type="nchar" MaxLength="32" />
+    <Property Name="Sex" Type="nchar" MaxLength="6" />
+    <Property Name="Professional" Type="nchar" MaxLength="32" />
+    <Property Name="Grade" Type="nchar" MaxLength="10" />
+    <Property Name="Department" Type="nchar" MaxLength="10" />
+    <Property Name="Campus" Type="nchar" MaxLength="10" />
+    <Property Name="State" Type="int" />
+    <Property Name="ActiCode" Type="nchar" MaxLength="10" />
+    <Property Name="RegTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="传智StudioModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

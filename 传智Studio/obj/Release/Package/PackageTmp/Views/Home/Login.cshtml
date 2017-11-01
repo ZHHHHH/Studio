@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/Content/style.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        //完成登陆的回调函数
+        function afterLogin(data) {
+            var serverData = data.split(':');
+            if (serverData[0] == "ok") {
+                window.location.href = "/Admin/Index";
+            } else {
+                alert(serverData[1])
+                $("#Password").val('');
+            }
+            changeCheckCode();
+        }
+        //完成注册的回调函数
+        function afterRegister(data) {
+            var serverData = data.split(':');
+            if (serverData[0] == "ok") {
+                alert(serverData[1]);
+                Login_form();
+            } else {
+                alert(serverData[1]);
+                $("#ValidataNumber").val('');
+                $("#Validata").val('');
+            }
+            changeCheckCode();
+        }
+
+        //验证码的更新
+        function changeCheckCode() {
+            $("#img").attr("src", $("#img").attr("src") + 1);
+        }
+        //注册和登陆界面的显示与隐藏
+        function Register_form() {
+            $("#login-form").css("display", "none");
+            $("#register-form").css("display", "block");
+        }
+        //注册和登陆界面的显示与隐藏
+        function Login_form() {
+            $("#register-form").css("display", "none");
+            $("#login-form").css("display", "block");
+        }
+    </script>
+</head>
+<body style="cursor:default">
+    <!--SIGN UP-->
+    <h1>传智工作室后台管理系统</h1>
+    <!--登陆-->
+    <div class="login-form" id="login-form">
+        <div class="head-info">
+            <label class="lbl-1"> </label>
+            <label class="lbl-2"> </label>
+            <label class="lbl-3"> </label>
+        </div>
+        <div class="avtar">
+            <img src="/Content/images/avtar.png" />
+        </div>
+        @using (Ajax.BeginForm("UserLogin", "Home", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterLogin", LoadingElementId = "Loadingdiv" }, new { id = "LoginForm" }))
+        {
+            <input type="text" class="text" id="Username" name="Username" placeholder="邮箱账号" onkeyup="value=value.replace(/\s/g,'')" />
+            <div class="key">
+                <input type="password" id="Password" name="Password" placeholder="密码" onkeyup="value=value.replace(/\s/g,'')" />
+            </div>
+            <div id="Loadingdiv" style="display:none">
+                <strong style="color:red"> 正在登陆中,请稍后....</strong>
+            </div>
+            <strong>
+                <a href="javascript:void(0)" onclick="Register_form()" style="text-decoration:none;color:pink;font-size:20px">邮箱注册</a>
+            </strong>
+            <div class="signin">
+                <input type="submit" value="登陆">
+            </div>
+        }
+    </div>
+
+    <!--注册-->
+    <div class="login-form" id="register-form" style="display:none">
+        <div class="close"> </div>
+        <div class="head-info">
+            <label class="lbl-1"> </label>
+            <label class="lbl-2"> </label>
+            <label class="lbl-3"> </label>
+        </div>
+        <div class="clear"> </div>
+        <div class="avtar">
+            <img src="/Content/images/avtar.png" />
+        </div>
+        @using (Ajax.BeginForm("UserRegister", "Home", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterRegister", LoadingElementId = "Loading_div" }, new { id = "RegisterForm" }))
+        {
+            <input type="text" class="text" id="Email" name="Email" placeholder="邮箱账号" onkeyup="value=value.replace(/\s/g,'')" />
+            <input type="text" class="text" id="ValidataNumber" name="ValidataNumber" placeholder="激活码" onkeyup="value = value.replace(/\s/g, '')" />
+            <input type="text" id="Validata" name="Validata" placeholder="验证码" onkeyup="value = value.replace(/\s/g, '')" />
+            <img id="img" src="/Home/ShowValidateCode?id=1" />
+            <a href="javascript:void(0)" onclick="changeCheckCode();return false;" style="font-size:20px;color:pink">换一张</a>
+            <br />
+            <div id="Loading_div" style="display:none">
+                <strong style="color:red"> 正在注册中,请稍后....</strong>
+            </div>
+            <strong>
+                <a href="javascript:void(0)" onclick="Login_form()" style="text-decoration:none;color:pink;font-size:20px">返回登陆</a>
+            </strong>
+            <div class="signin">
+                <input type="submit" value="注册">
+            </div>
+        }
+    </div>
+
+    <!--版权-->
+    <div class="copy-rights">
+        <p>
+            Copyright &copy; 2017.Company name All rights
+            <a href="/Home/Index">传智工作室</a>
+        </p>
+    </div>
+
+</body>
+</html>

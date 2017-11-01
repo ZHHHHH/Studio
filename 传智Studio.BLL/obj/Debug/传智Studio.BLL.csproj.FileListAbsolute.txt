@@ -1,0 +1,14 @@
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\传智Studio.BLL.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\传智Studio.BLL.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\obj\Debug\传智Studio.BLL.csprojResolveAssemblyReference.cache
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\obj\Debug\传智Studio.BLL.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\obj\Debug\传智Studio.BLL.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\EntityFramework.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\传智Studio.DAL.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\传智Studio.Model.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\传智Studio.DAL.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\传智Studio.Model.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\EntityFramework.xml
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.BLL\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll

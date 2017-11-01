@@ -1,0 +1,14 @@
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.dll.config
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.BLL.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Common.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Model.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.DAL.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.BLL.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Common.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Model.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.DAL.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\obj\Release\传智Studio.WebApp.csprojResolveAssemblyReference.cache
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\obj\Release\传智Studio.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\obj\Release\传智Studio.pdb

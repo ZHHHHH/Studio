@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="传智StudioModelStoreContainer" CdmEntityContainer="传智StudioEntities">
+    <EntitySetMapping Name="Bulletin">
+      <EntityTypeMapping TypeName="传智StudioModel.Bulletin">
+        <MappingFragment StoreEntitySet="Bulletin">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recruit">
+      <EntityTypeMapping TypeName="传智StudioModel.Recruit">
+        <MappingFragment StoreEntitySet="Recruit">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project">
+      <EntityTypeMapping TypeName="传智StudioModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vote">
+      <EntityTypeMapping TypeName="传智StudioModel.Vote">
+        <MappingFragment StoreEntitySet="Vote">
+          <ScalarProperty Name="Voters" ColumnName="Voters" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="传智StudioModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="RegTime" ColumnName="RegTime" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Professional" ColumnName="Professional" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+          <ScalarProperty Name="UserAccount" ColumnName="UserAccount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

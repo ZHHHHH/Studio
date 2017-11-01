@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "修改密码";
+    Layout = "/Views/Shared/_LayoutPage1.cshtml";
+}
+@section head{
+    <script type="text/javascript">
+        window.onload = function () {
+            //加载用户信息
+            LoadUserInfo();
+            //完成邮箱验证码的发送
+            $("#SendEmailBtn").click(function () {
+                this.disabled = "disabled";
+                $.post("/UserInfo/SendEmail", {}, function (data) {
+                    var str=data.split(':');
+                    if (str[0] == "ok") {
+                        alert(str[1]);
+                        $("#Lbtext").css("display", "block");
+                        InterValObj = window.setInterval(SetRemainTime, 1000);
+                    } else {
+                        alert(str[1]);
+                        $("#SendEmailBtn").removeAttr("disabled");
+                    }
+                });
+            });
+        }
+        var count = 60;
+        //计时
+        function SetRemainTime() {
+            if (count == 0) {
+                $("#SendEmailBtn").removeAttr("disabled");
+                window.clearInterval(InterValObj);
+                $("#Lbtext").css("display", "none");
+                count = 60;
+            }
+            else {
+                count--;
+                $("#Lbtext").text("校验码已发出，请注意查收邮箱，如果没有收到，你可以在" + count + "秒后要求系统重新发送")
+            }
+        }
+        //完成修改密码的回调函数
+        function afterEditPwd(data) {
+            var str=data.split(':')
+            if (str[0] == "ok") {
+                alert(str[1]);
+                window.location.href = "/Home/Login";
+            } else {
+                alert(str[1]);
+            }
+        }
+        //完成忘记密码的回调函数
+        function afterForgetPwd(data) {
+            var str = data.split(':');
+            if (str[0] == "ok") {
+                alert(str[1]);
+                window.location.href = "/Home/Login";
+            } else {
+                alert(str[1]);
+            }
+        }
+        //展示忘记密码的面板
+        function ShowPwdForget(){
+            $("#Pwd_Edit").css("display", "none");
+            $("#Pwd_Forget").css("display", "block");
+        }
+    </script>    
+    
+    }
+<div class="content" style="cursor:default">
+    <!--右上角的下方-->
+    <div class="header">
+        <h1 class="page-title">密码更改</h1>
+        <ul class="breadcrumb">
+            <li><a href="/Admin/Index">Home</a> </li>
+            <li class="active"><a href="javascript:void(0)" onclick="ShowPwdForget()">忘记密码</a></li>
+        </ul>
+    </div>
+    <!--修改密码-->
+    <div class="main-content" id="Pwd_Edit">
+        <div class="panel-heading no-collapse" style="background-color:#e2e2e2">修改密码</div>
+        @using (Ajax.BeginForm("EditPwd", "UserInfo", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterEditPwd", LoadingElementId = "Loadingdiv" }, new { id = "EditPwdForm" }))
+        {
+            <div style="padding-top:20px;padding-left: 50px">
+                <span style=" font-size: 20px;font-style: normal">当前密码:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="CurrentPwd" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">更改密码:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="EditPwd" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">再次输入:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="EditPwdAgain" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <div style="padding-left:110px">
+                    <input type="submit" id="btnAddBulletin" value="提交" style="width: 80px; height: 40px; background-color: #e62828; border: #010101; font-size: 20px; color: white" />
+                    <div id="Loadingdiv" style="display:none">
+                        <strong style="font-size:20px;color:red">正在修改中......</strong>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <!--忘记密码-->
+    <div class="main-content" id="Pwd_Forget" style="display:none">
+        <div class="panel-heading no-collapse" style="background-color:#e2e2e2">忘记密码</div>
+    @using (Ajax.BeginForm("ForgetPwd", "UserInfo", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterForgetPwd", LoadingElementId = "Loadingdiv" }, new { id = "ForgetPwdForm" }))
+    {
+        <div style="padding-top:20px;padding-left: 50px">
+            <span style=" font-size: 20px;font-style: normal">邮箱帐号:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="Account" disabled="disabled" value="@Session["UserAccount"].ToString()"  style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+            <br /><br />
+            <span style=" font-size: 20px;font-style: normal">更改密码:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" name="EditPwd" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+            <br /><br />
+            <span style=" font-size: 20px;font-style: normal">再次输入:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" name="EditPwdAgain" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+            <br /><br />
+            <span style=" font-size: 20px;font-style: normal">邮箱验证:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="EmailValidata" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+            <input type="button" value="发送验证码" id="SendEmailBtn" />
+            <br /><br />
+            <div style="padding-left:110px">
+                <label id="Lbtext" style="display: none"></label><br/>
+                <input type="submit" id="btnAddBulletin" value="提交" style="width: 80px; height: 40px; background-color: #e62828; border: #010101; font-size: 20px; color: white" />
+                <div id="Loadingdiv" style="display:none">
+                    <strong style="font-size:20px;color:red">正在修改中......</strong>
+                </div>
+            </div>
+        </div>
+    }
+
+    </div>
+
+
+</div>

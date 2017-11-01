@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+  <object type="传智Studio.BLL.UserInfoService, 传智Studio.BLL" singleton="false" name="UserInfoService" >
+  </object>
+  <object type="传智Studio.BLL.BulletinService, 传智Studio.BLL" singleton="false" name="BulletinService" ></object>
+   <object type="传智Studio.BLL.ProjectService, 传智Studio.BLL" singleton="false" name="ProjectService" ></object>
+   <object type="传智Studio.BLL.VoteService, 传智Studio.BLL" singleton="false" name="VoteService" ></object>
+   <object type="传智Studio.BLL.RecruitService, 传智Studio.BLL" singleton="false" name="RecruitService" ></object>
+  
+</objects>

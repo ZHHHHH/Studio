@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "我的信息";
+    Layout = "/Views/Shared/_LayoutPage1.cshtml";
+}
+@using 传智Studio.Model
+@model IQueryable<UserInfo>
+@section head{
+    <script type="text/javascript">
+        window.onload = function () {
+            //加载用户信息
+            LoadUserInfo();
+            CampusSelect();
+            DepartmentSelect();
+            SexSelect();
+        };
+        //完成修改后的回调函数
+        function afterEditUserInfo(data) {
+            if (data == "ok") {
+                alert("修改成功!");
+                window.location.href = "/UserInfo/UserInfoPage";
+            }
+        }
+        //校区的选中设置
+        function CampusSelect() {
+            var Campus = $("#Campus").val().trim();
+            if (Campus == "泰山") {
+                $("#ts").attr("selected", "selected");
+            } else if (Campus == "华山") {
+                $("#hs").attr("selected", "selected");
+            } else if (Campus == "启林") {
+                $("#ql").attr("selected", "selected");
+            } else if (Campus == "六一") {
+                $("#so").attr("selected", "selected");
+            }
+        }
+        //部门的选中设置
+        function DepartmentSelect() {
+            var Department = $("#Department").val().trim();
+            if (Department == "ASP") {
+                $("#asp").attr("selected", "selected");
+            } else if (Department == "JSP") {
+                $("#jsp").attr("selected", "selected");
+            } else if (Department == "前端") {
+                $("#ui").attr("selected", "selected");
+            } else if (Department == "其他") {
+                $("#else").attr("selected", "selected");
+            }
+        }
+        //性别的选中设置
+        function SexSelect() {
+            var sex = $("#sex").val().trim();
+            if (sex == "男") {
+                $("#man").attr("checked", "checked");
+            } else if (sex == "女") {
+                $("#woman").attr("checked", "checked");
+            }
+        }
+    </script>
+    }
+<div class="content" style="cursor:default">
+    <!--右上角的下方-->
+    <div class="header">
+        <h1 class="page-title">我的信息</h1>
+        <ul class="breadcrumb">
+            <li><a href="/Admin/Index">Home</a> </li>
+            <li class="active"><a href="javascript:void(0)">更改信息</a></li>
+        </ul>
+    </div>
+    <div class="main-content" id="User_InforMation">
+        <div class="panel-heading no-collapse" style="background-color:#e2e2e2">个人信息</div><br/>
+        @using (Ajax.BeginForm("EditUserInfo", "UserInfo", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterEditUserInfo", LoadingElementId = "Loadingdiv" }, new { id = "EditUserInfoForm" }))
+        {
+            foreach (var u in Model)
+            {
+            <input type="hidden" value="@u.Sex" id="sex" />
+            <input type="hidden" value="@u.Department" id="Department" />
+            <input type="hidden" value="@u.Campus" id="Campus" />
+            <div style="padding-left:20%">
+                <span style=" font-size: 20px;font-style: normal">邮箱账户:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="UserAccount" value="@u.UserAccount" disabled="disabled" style="width: 60%;height: 30px;font-size:15px"/>
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">我的昵称:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="UserName" value="@u.UserName" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">我的电话:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="PhoneNumber" value="@u.PhoneNumber" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">我的专业:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="Professional" value="@u.Professional" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">我的年级:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="Grade" value="@u.Grade" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">所属部门:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="Department" style="width: 60%;height: 30px;font-size:15px">
+                    <option value="" disabled="disabled"  selected="selected">请选择</option>
+                    <option value="ASP" id="asp">ASP</option>
+                    <option value="JSP" id="jsp">JSP</option>
+                    <option value="前端" id="ui">前端</option>
+                    <option value="其他" id="else">其他</option>
+                </select>
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">所住校区:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="Campus" style="width: 60%;height: 30px;font-size:15px">
+                    <option value="" disabled="disabled"  selected="selected">请选择</option>
+                    <option value="泰山" id="ts">泰山</option>
+                    <option value="华山" id="hs">华山</option>
+                    <option value="启林" id="ql">启林</option>
+                    <option value="六一" id="so">六一</option>
+                </select>
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">我的性别:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style=" font-size: 20px;font-style: normal">男:</span>
+                <input type="radio" name="sex" id="man"  value="男" style="width:20px;height:20px" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style=" font-size: 20px;font-style: normal">女:</span>
+                <input type="radio" name="sex" id="woman"  value="女" style="width:20px;height:20px" />
+                <br /><br />
+                <div style="padding-left:110px">
+                    <input type="submit" id="btnAddBulletin" value="提交" style="width: 80px; height: 40px; background-color: #e62828; border: #010101; font-size: 20px; color: white" />
+                    <div id="Loadingdiv" style="display:none">
+                        <strong style="font-size:20px;color:red">正在修改中......</strong>
+                    </div>
+                </div>
+            </div>
+            }
+        }
+
+    </div>
+</div>
+

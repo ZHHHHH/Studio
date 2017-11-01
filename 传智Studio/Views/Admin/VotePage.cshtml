@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "投票系统";
+    Layout = "/Views/Shared/_LayoutPage1.cshtml";
+}
+@using 传智Studio.Common
+@using 传智Studio.Model
+@model IQueryable<Vote>
+
+@section head{
+    <!--富文本编辑器配置文件 -->
+    <script src="/Content/ueditor/ueditor.config.js"></script>
+    <!-- 富文本编辑器源码文件 -->
+    <script src="/Content/ueditor/ueditor.all.min.js"></script>
+    <!--富文本编辑器语言文件-->
+    <script src="/Content/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            //实例化富文本编辑器
+            var ue = UE.getEditor('container');
+            //富文本编辑器数据编辑时的本地保存
+            setTimeout(function () {
+                ue.execCommand('drafts');
+            }, 500); //注意一定要延时。要等这玩意载入成功。
+            //加载用户信息
+            LoadUserInfo();
+
+            var number = 0;//用于记录用户增加了多少个选项
+            //添加投票选项
+            $("#AddOptionBtn").click(function () {
+                number++;
+                $("#number").val(number);
+                $("#option_div").append("<span style='background-color:#e2e2e2;font-size:20px'>" + number + "</span><input type='text'  onkeyup='UnBlank(this)'  style='width: 60%;height: 30px;font-size:15px'  name='Option" + number + "'/><br/><br/>")
+            });
+        }
+        //显示发布公告面板
+        function ShowEditVote() {
+            $("#Vote_Information").css("display", "none");
+            $("#page_nav").css("display", "none");
+            $("#Vote_Edit").css("display", "block");
+        }
+        //完成发布招聘信息的回调函数
+        function afterEditVote(data) {
+            var serverData = data.split(':');
+            if (serverData[0] == "ok") {
+                alert(serverData[1]);
+                window.location.href = "/Admin/VotePage";
+            } else {
+                alert(serverData[1]);
+            }
+        }
+        //实现详细页网页地址打开
+        function VotePage(id, year, month, day) {
+            window.open("/Html/VoteInformation/" + year + "/" + month + "/" + day + "/" + id + ".html");
+        }
+    </script>
+    <style type="text/css">
+        tr.change:hover {
+            background-color: #e2e2e2;
+        }
+    </style>
+}
+<div class="content" style="cursor:default">
+    <!--右上角的下方-->
+    <div class="header">
+        <h1 class="page-title">投票信息</h1>
+        <ul class="breadcrumb">
+            <li><a href="/Admin/Index">Home</a> </li>
+            <li class="active"><a href="javascript:void(0)" onclick="ShowEditVote()">发起投票</a></li>
+        </ul>
+    </div>
+    <!--所有投票信息-->
+    <div class="main-content" id="Vote_Information">
+        <div class="panel panel-default">
+            <div class="panel-heading no-collapse">所有投票信息</div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>发起投票人</th>
+                        <th>投票标题</th>
+                        <th>发布时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if ((int)ViewData["totalCountVote"] != 0)
+                        {
+                            foreach (var v in Model)
+                            {
+                    <tr onclick="VotePage(@v.Id,@v.Time.Year,@v.Time.Month,@v.Time.Day)" style="cursor:pointer" class="change">
+                        <td>@v.Name</td>
+                        <td>@v.Title</td>
+                        <td>@v.Time</td>
+                    </tr>
+                            }
+                        }
+                        else
+                        {
+                    <tr>
+                        <td style="padding-left:30%"><h1>哎呀,信息都被吃啦!</h1></td>
+                    </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--发起投票-->
+    <div class="main-content" id="Vote_Edit" style="display:none">
+        <div class="panel-heading no-collapse" style="background-color:#e2e2e2">发布招聘信息</div>
+        @using (Ajax.BeginForm("EditVote", "Admin", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterEditVote", LoadingElementId = "Loadingdiv" }, new { id = "EditVoteForm" }))
+        {
+            <div style="padding-top:20px;padding-left: 50px">
+                <span style=" font-size: 20px;font-style: normal">投票主题:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="Title" style="width: 60%;height: 30px;font-size:15px" onkeyup="UnBlank(this)" />
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">投票内容:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="padding-left:10.5%">
+                    <textarea id="container" name="content" style="width:90%;height:300px;vertical-align: top"></textarea>
+                </div>
+                <br /><br />
+                <span style=" font-size: 20px;font-style: normal">投票选项:</span><br /><br />
+                <div id="option_div" style="padding-left:9%">
+                </div>
+                <input type="hidden" id="number" name="number" value="0" />
+                <div style="padding-left:10.5%">
+                    <input type="button" id="AddOptionBtn" value="增加选项" />
+                </div>
+                <br /><br />
+                <div style="padding-left:10.5%">
+                    <input type="submit" id="btnAddBulletin" value="提交" style="width: 80px; height: 40px; background-color: #e62828; border: #010101; font-size: 20px; color: white" />
+                    <div id="Loadingdiv" style="display:none">
+                        <strong style="font-size:20px;color:red">正在提交中......</strong>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <!--分页-->
+    <div class="page_nav" id="page_nav">
+        @MvcHtmlString.Create(PageBarHelper.GetPagaBar((int)ViewData["pageIndex"], (int)ViewData["totalCountVote"]))
+    </div>
+</div>
+

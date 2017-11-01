@@ -1,0 +1,14 @@
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.dll.config
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.dll
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.pdb
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\obj\Debug\传智Studio.WebApp.csprojResolveAssemblyReference.cache
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\obj\Debug\传智Studio.dll
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\obj\Debug\传智Studio.pdb
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Common.dll
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Common.pdb
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.BLL.dll
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Model.dll
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.DAL.dll
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.BLL.pdb
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.Model.pdb
+F:\users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio\bin\传智Studio.DAL.pdb

@@ -1,0 +1,10 @@
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\传智Studio.Common.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\传智Studio.Common.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\传智Studio.Model.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\EntityFramework.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\传智Studio.Model.pdb
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\EntityFramework.xml
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\bin\Release\zh-Hans\EntityFramework.resources.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\obj\Release\传智Studio.Common.csprojResolveAssemblyReference.cache
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\obj\Release\传智Studio.Common.dll
+F:\Users\admin\documents\visual studio 2013\Projects\传智Studio\传智Studio.Common\obj\Release\传智Studio.Common.pdb

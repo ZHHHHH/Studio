@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="传智StudioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bulletin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Progress" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recruit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Job" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserAccount" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="UserPwd" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="16" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="32" />
+    <Property Name="Sex" Type="nchar" MaxLength="6" />
+    <Property Name="Professional" Type="nvarchar" MaxLength="16" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="16" />
+    <Property Name="Department" Type="nvarchar" MaxLength="16" />
+    <Property Name="Campus" Type="nvarchar" MaxLength="16" />
+    <Property Name="RegTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Title" Type="nchar" MaxLength="32" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Voters" Type="nvarchar" MaxLength="60" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="传智StudioModelStoreContainer">
+    <EntitySet Name="Bulletin" EntityType="Self.Bulletin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recruit" EntityType="Self.Recruit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vote" EntityType="Self.Vote" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
